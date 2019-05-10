@@ -76,5 +76,12 @@
  *	This function for prints the array of data sets to the screen.
  ***********************************************************************/
 
-
+/* Function declaration */
+unsigned char print_array (unsigned char *data, unsigned int length);
+unsigned char sort_array (unsigned char *data, unsigned int length); 
+unsigned char find_mean (unsigned char *data, unsigned int length);
+unsigned char find_median (unsigned char *data, unsigned int length);
+unsigned char find_maximum (unsigned char *data, unsigned int length);
+unsigned char find_minimum (unsigned char *data, unsigned int length);
+unsigned char print_statistics (unsigned char *data, unsigned int length);
 
