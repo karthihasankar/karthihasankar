@@ -6,7 +6,7 @@
  *
  * Constants:
  *
- ********************************************/
+*********************************************/
 
 #define DATA_SET_LENGTH (40)
 
@@ -14,12 +14,11 @@
 unsigned char print_array(unsigned char *data, unsigned int length)
 {
 	int i;
-	unsigned char array[length];
-	
+
 	for(i=0; i<length; i++)
 	{
 		printf("\t%u ", *data);
-		data++;
+		data++;//input in current array element and move to the next element
 	}
 	printf("\n");
 	return 0;
@@ -35,7 +34,8 @@ unsigned char sort_array(unsigned char *data, unsigned int length)
 	{
 		for(j=i+1; j<length; ++j)
 		{
-			if(*(data+i) < *(data+j))
+			if(*(data+i) < *(data+j))//if the array of current element is lesser than the next element
+				//then we swapping the element to the next location
 			{
 				temp = *(data+i);
 				*(data+i) = *(data+j);
@@ -56,8 +56,7 @@ unsigned char sort_array(unsigned char *data, unsigned int length)
 unsigned char find_mean(unsigned char *data, unsigned int length)
 {
 	int i;
-       	unsigned int Mean = 0;
-	unsigned char array[length];
+     	unsigned int Mean = 0;
 
 	for(i=0; i<length; i++)
 	{
@@ -93,11 +92,11 @@ unsigned char find_median(unsigned char *data, unsigned int length)
 unsigned char find_maximum(unsigned char *data, unsigned int length)
 {
 	int i=0;
-	unsigned char max=*(data+i);
+	unsigned char max=*(data+i);//Assume first element as maximum
 
 	for(i=1; i<length; i++)
 	{
-		if(*(data+i) > max)
+		if(*(data+i) > max)//if current element greater than max
 		{
 			max = *(data+i);
 		}
@@ -109,11 +108,11 @@ unsigned char find_maximum(unsigned char *data, unsigned int length)
 unsigned char find_minimum(unsigned char *data, unsigned int length)
 {
 	int i=0;
-	unsigned char min=*(data+i);
+	unsigned char min=*(data+i);//Assume first element as minimum
 	
 	for(i=1; i<length; i++)
 	{
-		if(*(data+i) < min)
+		if(*(data+i) < min)//if current element lesser than min
 		{
 			min = *(data+i);
 		}
@@ -144,15 +143,14 @@ unsigned char print_statistics(unsigned char *data, unsigned int length)
 	printf("\n");
 
 	return 0;
-}
+} 
 
 unsigned char main()
 {
 	unsigned char array[DATA_SET_LENGTH], *data;
-	unsigned int length;
-	//, Mean, Median, Max, Min;
 	int i;
-	/* Input array length and element */
+	unsigned int length;
+        /* Input array length and element */
 	printf("\nEnter the array size: ");
 	scanf("%d", &length);
 
@@ -161,7 +159,7 @@ unsigned char main()
 	{
 		scanf("\t%u, ", (unsigned int*) &array[i]);
 	}
-	data = array;
+	data = array;//name of array provides base address of array
 	
 	/* printing the array */
 	printf("\nArray contains.... \n");
@@ -174,22 +172,6 @@ unsigned char main()
 	/*print the statistics of element */
 	print_statistics(data, length);
 	
-	/* mean of the data */
-//	Mean = find_mean(data, length);
-//	printf("\nMean value of the data set: %u\n", Mean);
-
-	/* median of the elements */
-//	Median = find_median(data, length);
-//	printf("\nMedian value of the data set: %u\n", Median);
-
-	/* maximum value of the data set */
-/*	Max = find_maximum(data, length);
-	printf("\nMaximum element is: %u\n", Max);*/
-
-	/* minimum value of the data set */
-/*	Min = find_minimum(data, length);
-	printf("\nMinimum element is: %u\n", Min);*/
-
 	return 0;
 }
 
